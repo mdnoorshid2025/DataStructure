@@ -73,6 +73,6 @@ public class GraphTraversal {
         System.out.println();
         depthFirstSearchUsingRecursion(graph, "a"); // acebdf
         System.out.println();
-        breadthFirstSearchUsingQueue(graph, "a"); // abdcef
+        breadthFirstSearchUsingQueue(graph, "a"); // acbedf
     }
 }
