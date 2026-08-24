@@ -43,6 +43,21 @@ public class Graph {
 
     }
 
+    // Breadth First Print using Queue
+    public static void breadthFirstSearchUsingQueue(Map<String, List<String>> graph,
+                                                    String source) {
+        Queue<String> queue = new ArrayDeque<>(); // Initialize queue
+        queue.add(source); // Add source node to queue
+        while (!queue.isEmpty()) { // Checking Queue for empty
+            String current = queue.poll(); // Remove and return the head of the queue
+            System.out.print(current); // Print current node
+            for (String neighbour : graph.get(current)) { // Traversing neighbors
+                queue.add(neighbour); // Add neighbors to queue
+            }
+        }
+
+    }
+
     public static void main(String[] args) {
 
         Map<String, List<String>> graph = new HashMap<>();
@@ -56,6 +71,8 @@ public class Graph {
 
         depthFirstPrintUsingStack(graph, "a"); // abdfce
         System.out.println();
-        depthFirstSearchUsingRecursion(graph, "a"); // abdfce
+        depthFirstSearchUsingRecursion(graph, "a"); // acebdf
+        System.out.println();
+        breadthFirstSearchUsingQueue(graph, "a"); // abdcef
     }
 }
