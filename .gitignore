@@ -1,0 +1,15 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+misc.xml
+modules.xml
+vcs.xml
+
+# Compiled output
+out/
+*.class
+
+# Java
+*.jar
+*.war
+*.ear
