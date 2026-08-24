@@ -2,7 +2,7 @@ package ds.graphs;
 
 import java.util.*;
 
-public class Graph {
+public class GraphTraversal {
 
     // Depth First Print using Stack
     public static void depthFirstPrintUsingStack(
