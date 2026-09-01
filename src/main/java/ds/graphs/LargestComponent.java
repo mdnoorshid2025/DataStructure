@@ -80,7 +80,7 @@ public class LargestComponent {
         graph.put(1, List.of(2));
         graph.put(2, List.of(1));
 
-        // Expected output: 4
+        // Expected output: 5
         System.out.println(getLargestComponent(graph));
 
     }
