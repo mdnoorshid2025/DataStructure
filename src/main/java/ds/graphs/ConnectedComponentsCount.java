@@ -10,6 +10,10 @@ public class ConnectedComponentsCount {
 
     /**
      * Counts the number of connected components in the graph.
+     * 
+     * Time Complexity: O(V + E) where V = number of vertices, E = number of edges
+     * Space Complexity: O(V) for the visited set and recursion stack
+     * 
      * @param graph Adjacency list representation of the graph
      * @return Number of connected components
      */
@@ -31,6 +35,10 @@ public class ConnectedComponentsCount {
     /**
      * Recursively explores all nodes in the current connected component.
      * Uses DFS (Depth-First Search) to traverse the component.
+     * 
+     * Time Complexity: O(V + E) for the entire graph traversal
+     * Space Complexity: O(V) for the recursion stack in worst case
+     * 
      * @param graph Adjacency list representation of the graph
      * @param current Current node being explored
      * @param visited Set of already visited nodes

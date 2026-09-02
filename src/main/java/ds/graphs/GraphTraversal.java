@@ -7,12 +7,23 @@ import java.util.*;
  * - Depth First Search (DFS) using iterative approach with stack
  * - Depth First Search (DFS) using recursive approach
  * - Breadth First Search (BFS) using queue
+ * 
+ * Problem: Visit all nodes in a graph starting from a given source node.
+ * Graph traversal is fundamental for many graph algorithms including path finding,
+ * cycle detection, and topological sorting.
+ * 
+ * Time Complexity: O(V + E) where V = number of vertices, E = number of edges
+ * Space Complexity: O(V) for the stack/queue/recursion stack
  */
 public class GraphTraversal {
 
     /**
      * Performs Depth First Search (DFS) traversal using an iterative approach with a stack.
      * DFS explores as far as possible along each branch before backtracking.
+     * 
+     * Time Complexity: O(V + E) - visits each vertex once and processes each edge once
+     * Space Complexity: O(V) - stack can hold at most V vertices in worst case
+     * 
      * @param graph Adjacency list representation of the graph
      * @param source Starting node for traversal
      */
@@ -47,6 +58,13 @@ public class GraphTraversal {
     /**
      * Performs Depth First Search (DFS) traversal using recursion.
      * Recursively visits each neighbor before backtracking.
+     * 
+     * Time Complexity: O(V + E) - visits each vertex once and processes each edge once
+     * Space Complexity: O(V) - recursion stack can go up to V levels deep in worst case
+     * 
+     * Note: This implementation does not handle cycles - for graphs with cycles,
+     * a visited set is required to prevent infinite recursion.
+     * 
      * @param graph Adjacency list representation of the graph
      * @param source Current node being visited
      */
@@ -65,6 +83,13 @@ public class GraphTraversal {
     /**
      * Performs Breadth First Search (BFS) traversal using a queue.
      * BFS explores all neighbors at current depth before moving to next depth level.
+     * 
+     * Time Complexity: O(V + E) - visits each vertex once and processes each edge once
+     * Space Complexity: O(V) - queue can hold at most V vertices in worst case
+     * 
+     * BFS is ideal for finding shortest paths in unweighted graphs since it explores
+     * nodes level by level from the source.
+     * 
      * @param graph Adjacency list representation of the graph
      * @param source Starting node for traversal
      */

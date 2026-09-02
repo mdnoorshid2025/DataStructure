@@ -11,6 +11,10 @@ public class HasPathGraph {
     /**
      * Checks if a path exists from source to destination using Depth First Search (DFS).
      * Uses recursive approach to explore each branch completely before backtracking.
+     * 
+     * Time Complexity: O(V + E) where V = number of vertices, E = number of edges
+     * Space Complexity: O(V) for the recursion stack in worst case
+     * 
      * @param graph Adjacency list representation of the graph
      * @param source Starting node
      * @param destination Target node to find
@@ -36,6 +40,10 @@ public class HasPathGraph {
     /**
      * Checks if a path exists from source to destination using Breadth First Search (BFS).
      * Uses iterative approach with queue to explore nodes level by level.
+     * 
+     * Time Complexity: O(V + E) where V = number of vertices, E = number of edges
+     * Space Complexity: O(V) for the queue in worst case
+     * 
      * @param graph Adjacency list representation of the graph
      * @param source Starting node
      * @param destination Target node to find

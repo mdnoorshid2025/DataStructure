@@ -15,6 +15,10 @@ public class LargestComponent {
     /**
      * Finds the size of the largest connected component in the graph.
      * Iterates through all nodes and uses DFS to count component sizes.
+     * 
+     * Time Complexity: O(V + E) where V = number of vertices, E = number of edges
+     * Space Complexity: O(V) for the visited set and recursion stack
+     * 
      * @param graph Adjacency list representation of the graph
      * @return Size of the largest connected component
      */
@@ -42,6 +46,10 @@ public class LargestComponent {
     /**
      * Recursively explores all nodes in the current connected component and counts its size.
      * Uses DFS (Depth-First Search) to traverse the component.
+     * 
+     * Time Complexity: O(V + E) for the entire graph traversal
+     * Space Complexity: O(V) for the recursion stack in worst case
+     * 
      * @param graph Adjacency list representation of the graph
      * @param current Current node being explored
      * @param visited Set of already visited nodes

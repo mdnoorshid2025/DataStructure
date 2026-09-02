@@ -12,6 +12,10 @@ import java.util.*;
 public class UndirectionalTraversal {
     /**
      * Determines if a path exists between two nodes in an undirected graph.
+     * 
+     * Time Complexity: O(V + E) where V = number of vertices, E = number of edges
+     * Space Complexity: O(V + E) for the graph and O(V) for visited set
+     * 
      * @param edges List of edge pairs representing undirected connections
      * @param nodeA Starting node
      * @param nodeB Target node
@@ -27,6 +31,10 @@ public class UndirectionalTraversal {
     /**
      * Recursively searches for a path from source to destination using DFS.
      * Uses visited set to prevent infinite loops in undirected graphs.
+     * 
+     * Time Complexity: O(V + E) for the entire graph traversal
+     * Space Complexity: O(V) for the recursion stack and visited set
+     * 
      * @param graph Adjacency list representation
      * @param src Current node being explored
      * @param dest Target node to find
@@ -61,6 +69,10 @@ public class UndirectionalTraversal {
     /**
      * Builds an adjacency list representation from an edge list.
      * For undirected graphs, each edge is added in both directions.
+     * 
+     * Time Complexity: O(E) where E = number of edges
+     * Space Complexity: O(V + E) for the adjacency list
+     * 
      * @param edges List of edge pairs [node1, node2]
      * @return Adjacency list map where key=node, value=list of neighbors
      */
