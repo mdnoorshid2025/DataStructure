@@ -11,8 +11,38 @@ import java.util.*;
  * This uses Breadth First Search (BFS) which guarantees finding the shortest path
  * in unweighted graphs since it explores nodes level by level from the source.
  * 
+ * COMPLEXITY ANALYSIS EXPLAINED IN DETAIL
+ * ========================================
+ * 
+ * PROBLEM: Find the minimum number of edges between two nodes in an unweighted graph.
+ * 
  * Time Complexity: O(V + E) where V = number of vertices, E = number of edges
+ * 
+ * WHY O(V + E)?
+ * - BFS visits each vertex at most once (V operations)
+ * - For each visited vertex, we process all its edges (E operations total)
+ * - Each edge is processed at most once
+ * - Total work: V (vertices visited) + E (edges processed)
+ * 
+ * Example: Graph with 5 nodes and 5 edges
+ * - We visit each of the 5 nodes at most once
+ * - We process each of the 5 edges once
+ * - Total operations: 5 + 5 = 10
+ * 
  * Space Complexity: O(V) for the queue and visited set
+ * 
+ * WHY O(V)?
+ * - Queue: can hold up to V vertices in worst case
+ * - Visited set: stores at most V entries (one per node)
+ * - Total: O(V) + O(V) = O(V)
+ * 
+ * WHY BFS FOR SHORTEST PATH?
+ * - BFS explores nodes level by level from the source
+ * - Level 0: source node (distance 0)
+ * - Level 1: all nodes 1 edge away
+ * - Level 2: all nodes 2 edges away
+ * - First time we reach the destination, it's guaranteed to be the shortest path
+ * - DFS does NOT guarantee shortest path (might go deep before finding destination)
  */
 public class ShortestPath {
 

@@ -8,8 +8,39 @@ import java.util.Set;
  * An island is a group of adjacent 'L' (land) cells connected horizontally or vertically.
  * 'W' (water) cells are not part of any island.
  * 
+ * COMPLEXITY ANALYSIS EXPLAINED IN DETAIL
+ * ========================================
+ * 
+ * PROBLEM: Find the size of the smallest connected group of land cells.
+ * 
  * Time Complexity: O(R * C) where R = number of rows, C = number of columns
+ * 
+ * WHY O(R * C)?
+ * - We iterate through every cell in the grid once (R × C cells)
+ * - For each land cell, we do DFS to count the island size
+ * - Each cell is visited at most twice:
+ *   1. Once in the outer loop
+ *   2. Once during DFS (if it's land)
+ * - Total work: R × C (all cells)
+ * 
+ * Example: 6x5 grid (30 cells)
+ * - We check each of the 30 cells once
+ * - DFS visits land cells, but each cell is marked visited
+ * - Total operations: 30 (constant factor for neighbor checks)
+ * 
  * Space Complexity: O(R * C) for the visited set in worst case
+ * 
+ * WHY O(R * C)?
+ * - Visited set: stores at most R × C entries (one per cell)
+ * - Recursion stack: in worst case (all land), depth = R × C
+ * - Total: O(R × C) + O(R × C) = O(R × C)
+ * 
+ * ALGORITHM EXPLANATION:
+ * 1. Iterate through each cell in the grid
+ * 2. When we find an unvisited land cell, start DFS to count island size
+ * 3. DFS returns the size of the current island
+ * 4. Track the minimum size found across all islands
+ * 5. Visited cells are skipped in subsequent iterations
  */
 public class MinimumIsland {
     /**

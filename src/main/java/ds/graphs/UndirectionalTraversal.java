@@ -8,6 +8,43 @@ import java.util.*;
  * 
  * Example: edges = [['i','j'], ['k','i'], ['m','k'], ['k','l'], ['o','n']]
  * undirectedPath(edges, 'j', 'm') -> true (path: j -> i -> k -> m)
+ * 
+ * COMPLEXITY ANALYSIS EXPLAINED IN DETAIL
+ * ========================================
+ * 
+ * PROBLEM: Determine if a path exists between two nodes in an undirected graph.
+ * 
+ * Time Complexity: O(V + E) where V = number of vertices, E = number of edges
+ * 
+ * WHY O(V + E)?
+ * - Graph building: O(E) to process all edges
+ * - DFS traversal: O(V + E) to visit all vertices and edges
+ * - Total: O(E) + O(V + E) = O(V + E)
+ * 
+ * Example: Graph with 6 nodes and 5 edges
+ * - Build graph: process 5 edges
+ * - DFS: visit up to 6 nodes and 5 edges
+ * - Total operations: 5 + 6 + 5 = 16
+ * 
+ * Space Complexity: O(V + E) for the graph and O(V) for visited set
+ * 
+ * WHY O(V + E)?
+ * - Adjacency list: stores V vertices and E edges (O(V + E))
+ * - Visited set: stores at most V entries (O(V))
+ * - Recursion stack: up to V levels deep (O(V))
+ * - Total: O(V + E) + O(V) + O(V) = O(V + E)
+ * 
+ * WHY VISITED SET IS CRITICAL?
+ * - Undirected graphs have cycles (e.g., A-B means A→B and B→A)
+ * - Without visited set, DFS would loop infinitely: A→B→A→B→A...
+ * - Visited set marks nodes we've already explored
+ * - When we encounter a visited node, we skip it (prevents cycles)
+ * 
+ * ALGORITHM EXPLANATION:
+ * 1. Convert edge list to adjacency list (bidirectional edges)
+ * 2. Use DFS with visited set to find path
+ * 3. Mark nodes as visited when exploring
+ * 4. Skip already visited nodes (prevents infinite loops)
  */
 public class UndirectionalTraversal {
     /**

@@ -5,6 +5,39 @@ import java.util.*;
 /**
  * Determines if a path exists between two nodes in a graph using different traversal strategies.
  * Implements both DFS (recursive) and BFS (iterative) approaches to find paths.
+ * 
+ * COMPLEXITY ANALYSIS EXPLAINED IN DETAIL
+ * ========================================
+ * 
+ * PROBLEM: Determine if there's a path from source node to destination node.
+ * 
+ * Time Complexity: O(V + E) where V = number of vertices, E = number of edges
+ * 
+ * WHY O(V + E)?
+ * - In worst case, we might need to visit all vertices to find the destination
+ * - For each visited vertex, we check all its edges
+ * - Each edge is processed at most once
+ * - Total work: V (vertices visited) + E (edges processed)
+ * 
+ * Example: Graph with 6 nodes, destination is last node visited
+ * - We visit all 6 nodes before finding destination
+ * - We process all edges along the way
+ * - Total operations: 6 + edges
+ * 
+ * Space Complexity: O(V) for the recursion stack or queue
+ * 
+ * WHY O(V)?
+ * - DFS: Recursion stack can go up to V levels deep
+ * - BFS: Queue can hold up to V vertices
+ * - Total: O(V)
+ * 
+ * DFS vs BFS for Path Finding:
+ * - DFS: Explores one path completely before backtracking
+ *   - May find a path, but not necessarily the shortest
+ *   - Better for: Existence check, maze solving
+ * - BFS: Explores level by level from source
+ *   - Guaranteed to find shortest path in unweighted graphs
+ *   - Better for: Shortest path, closest node problems
  */
 public class HasPathGraph {
 

@@ -12,8 +12,34 @@ import java.util.*;
  * Graph traversal is fundamental for many graph algorithms including path finding,
  * cycle detection, and topological sorting.
  * 
+ * COMPLEXITY ANALYSIS EXPLAINED IN DETAIL
+ * ========================================
+ * 
  * Time Complexity: O(V + E) where V = number of vertices, E = number of edges
+ * 
+ * WHY O(V + E)?
+ * - We visit each vertex exactly once (V operations)
+ * - For each vertex, we process all its edges (E operations total)
+ * - Each edge is processed once (or twice for undirected graphs)
+ * - Total work: V (vertices) + E (edges)
+ * 
+ * Example: Graph with 6 nodes and 5 edges
+ * - We visit each of the 6 nodes once
+ * - We process each of the 5 edges once
+ * - Total operations: 6 + 5 = 11
+ * 
  * Space Complexity: O(V) for the stack/queue/recursion stack
+ * 
+ * WHY O(V)?
+ * - Stack/Queue: can hold at most V vertices in worst case
+ * - Recursion stack: can go up to V levels deep in worst case (linear graph)
+ * - Total: O(V)
+ * 
+ * DFS vs BFS:
+ * - DFS (Depth First): Goes deep before wide. Uses stack (LIFO).
+ *   Good for: Topological sort, cycle detection, maze solving
+ * - BFS (Breadth First): Goes wide before deep. Uses queue (FIFO).
+ *   Good for: Shortest path in unweighted graphs, level-order traversal
  */
 public class GraphTraversal {
 

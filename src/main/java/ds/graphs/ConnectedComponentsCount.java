@@ -5,6 +5,39 @@ import java.util.*;
 /**
  * Counts the number of connected components in an undirected graph.
  * A connected component is a set of nodes where each node is reachable from any other node in the same set.
+ * 
+ * COMPLEXITY ANALYSIS EXPLAINED IN DETAIL
+ * ========================================
+ * 
+ * PROBLEM: Count how many separate connected groups of nodes exist in a graph.
+ * A connected component means you can reach any node from any other node in that group.
+ * 
+ * Time Complexity: O(V + E) where V = number of vertices, E = number of edges
+ * 
+ * WHY O(V + E)?
+ * - We iterate through all V vertices in the outer loop
+ * - For each vertex, we explore its neighbors via DFS
+ * - Each edge is visited exactly twice (once from each endpoint in undirected graph)
+ * - Total work: V (for visiting each node) + E (for processing each edge)
+ * 
+ * Example: Graph with 8 nodes and 7 edges
+ * - We check each of the 8 nodes once
+ * - We traverse each of the 7 edges once during DFS exploration
+ * - Total operations: 8 + 7 = 15
+ * 
+ * Space Complexity: O(V) for the visited set and recursion stack
+ * 
+ * WHY O(V)?
+ * - Visited set: stores at most V entries (one per node)
+ * - Recursion stack: in worst case (linear graph), depth = V
+ * - Total: O(V) + O(V) = O(V)
+ * 
+ * ALGORITHM EXPLANATION:
+ * 1. Iterate through all nodes in the graph
+ * 2. For each unvisited node, start a DFS to explore its entire component
+ * 3. Mark all nodes in that component as visited
+ * 4. Increment counter for each new component found
+ * 5. Visited nodes are skipped in subsequent iterations
  */
 public class ConnectedComponentsCount {
 
