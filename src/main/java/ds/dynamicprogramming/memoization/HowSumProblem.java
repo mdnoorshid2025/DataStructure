@@ -63,8 +63,11 @@ public class HowSumProblem {
         
         // Test case 3: target=7, numbers=[2,4] -> Expected: null (impossible)
         System.out.println(howSumWithoutMemoization(7, new int[]{2, 4}));
+
+        // Test case 4: target=8, numbers=[2,3,5] -> Expected: [3,5] or [2,2,2,2] (valid combination)
+        System.out.println(howSumWithoutMemoization(8, new int[]{2, 3, 5}));
         
-        // Test case 4: target=300, numbers=[7,14] -> Expected: null (will be slow without memoization)
+        // Test case 5: target=300, numbers=[7,14] -> Expected: null (will be slow without memoization)
         System.out.println(howSumWithoutMemoization(300, new int[]{7, 14}));
     }
 }
