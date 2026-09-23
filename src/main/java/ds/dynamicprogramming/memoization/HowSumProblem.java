@@ -1,7 +1,9 @@
 package ds.dynamicprogramming.memoization;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * HowSum Problem - Dynamic Programming
@@ -9,13 +11,17 @@ import java.util.List;
  * any combination of numbers that add up to the target sum. If no combination exists,
  * return null.
  * 
- * Time Complexity: O(n^m * m) where n = array length, m = target sum
- * Space Complexity: O(m) for recursion stack
+ * Time Complexity:
+ * - Without memoization: O(n^m * m) where n = array length, m = target sum
+ * - With memoization: O(n × m × m) where n = array length, m = target sum
+ * 
+ * Space Complexity: O(m) for recursion stack + memo map
  */
 public class HowSumProblem {
 
     /**
      * Finds a combination of numbers that sum to the target using recursion (brute force)
+     * Time: O(n^m * m) | Space: O(m)
      * 
      * @param targetSum The desired sum to achieve
      * @param numbers Array of numbers that can be used to sum to target
@@ -49,20 +55,62 @@ public class HowSumProblem {
         return null;
     }
 
-    public static void main(String[] args) {
-        // Test case 1: target=7, numbers=[2,3] -> Expected: [3,2,2] or similar
-        System.out.println(howSumWithoutMemoization(7, new int[]{2, 3}));
-        
-        // Test case 2: target=7, numbers=[5,3,4,7] -> Expected: [7] or [3,4]
-        System.out.println(howSumWithoutMemoization(7, new int[]{5, 3, 4, 7}));
-        
-        // Test case 3: target=7, numbers=[2,4] -> Expected: null (impossible)
-        System.out.println(howSumWithoutMemoization(7, new int[]{2, 4}));
+    // Time: O(n × m × m) | Space: O(m)
+    public static List<Integer> howSumWithMemoization(int targetSum, int[] numbers, Map<Integer, List<Integer>> memo) {
+       if(targetSum == 0) return new ArrayList<>();
 
-        // Test case 4: target=8, numbers=[2,3,5] -> Expected: [3,5] or [2,2,2,2] (valid combination)
-        System.out.println(howSumWithoutMemoization(8, new int[]{2, 3, 5}));
-        
-        // Test case 5: target=300, numbers=[7,14] -> Expected: null (will be slow without memoization)
-        System.out.println(howSumWithoutMemoization(300, new int[]{7, 14}));
+       if(targetSum < 0) return null;
+
+       if(memo.containsKey(targetSum)) return memo.get(targetSum);
+
+       for(int num : numbers){
+           int remainder = targetSum - num;
+           List<Integer> result = howSumWithMemoization(remainder, numbers, memo);
+           if(result != null){
+               result.add(num);
+               memo.put(targetSum, result);
+               return result;
+           }
+       }
+        memo.put(targetSum, null);
+        return null;
     }
+
+    public static List<Integer> howSumWithMemoizationExecute(int targetSum, int[] numbers) {
+        Map<Integer, List<Integer>> memo = new HashMap<>();
+        return howSumWithMemoization(targetSum, numbers, memo);
+    }
+
+//    public static void main(String[] args) {
+//        // [3, 2, 2]
+//        System.out.println(howSumWithoutMemoization(7, new int[]{2, 3}));
+//
+//        // [7]
+//        System.out.println(howSumWithoutMemoization(7, new int[]{5, 3, 4, 7}));
+//
+//        // null
+//        System.out.println(howSumWithoutMemoization(7, new int[]{2, 4}));
+//
+//        // [3, 5]
+//        System.out.println(howSumWithoutMemoization(8, new int[]{2, 3, 5}));
+//
+//        // null
+//        System.out.println(howSumWithoutMemoization(300, new int[]{7, 14}));
+//    }
+public static void main(String[] args) {
+    // [3, 2, 2]
+    System.out.println(howSumWithMemoizationExecute(7, new int[]{2, 3}));
+
+    // [7]
+    System.out.println(howSumWithMemoizationExecute(7, new int[]{5, 3, 4, 7}));
+
+    // null
+    System.out.println(howSumWithMemoizationExecute(7, new int[]{2, 4}));
+
+    // [3, 5]
+    System.out.println(howSumWithMemoizationExecute(8, new int[]{2, 3, 5}));
+
+    // null
+    System.out.println(howSumWithMemoizationExecute(300, new int[]{7, 14}));
+}
 }
