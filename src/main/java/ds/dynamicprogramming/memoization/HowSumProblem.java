@@ -36,11 +36,6 @@ public class HowSumProblem {
             // Calculate remaining sum after using current number
             int reminder = targetSum - num;
             
-            // If remainder is 0, we found a valid combination with just this number
-            if (reminder == 0) {
-                return new ArrayList<>(List.of(num));
-            }
-            
             // Recursively try to find combination for the remainder
             List<Integer> result = howSumWithoutMemoization(reminder, numbers);
             
