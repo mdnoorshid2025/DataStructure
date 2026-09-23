@@ -15,7 +15,9 @@ import java.util.Map;
  * - Without memoization: O(n^m * m) where n = array length, m = target sum
  * - With memoization: O(n × m × m) where n = array length, m = target sum
  * 
- * Space Complexity: O(m) for recursion stack + memo map
+ * Space Complexity:
+ * - Without memoization: O( m) where n = array length, m = target sum
+ * - With memoization: O( m × m) where n = array length, m = target sum
  */
 public class HowSumProblem {
 
@@ -55,7 +57,7 @@ public class HowSumProblem {
         return null;
     }
 
-    // Time: O(n × m × m) | Space: O(m)
+    // Time: O(n × m × m) | Space: O(m x m)
     public static List<Integer> howSumWithMemoization(int targetSum, int[] numbers, Map<Integer, List<Integer>> memo) {
        if(targetSum == 0) return new ArrayList<>();
 
