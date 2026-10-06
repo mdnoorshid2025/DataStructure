@@ -19,7 +19,7 @@ import java.util.Map;
  * - Without memoization: O( m) where n = array length, m = target sum
  * - With memoization: O( m × m) where n = array length, m = target sum
  */
-public class HowSumProblem {
+public class HowSumProblem4 {
 
     /**
      * Finds a combination of numbers that sum to the target using recursion (brute force)

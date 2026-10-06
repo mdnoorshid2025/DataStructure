@@ -3,7 +3,7 @@ package ds.dynamicprogramming.memoization;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GridTraveler {
+public class GridTraveler2 {
     /*
      * COMPLEXITY ANALYSIS EXPLAINED IN DETAIL
      * ========================================

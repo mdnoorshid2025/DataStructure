@@ -3,7 +3,7 @@ package ds.dynamicprogramming.memoization;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CanSumProblem {
+public class CanSumProblem3 {
 
     /*
      * Time Complexity:

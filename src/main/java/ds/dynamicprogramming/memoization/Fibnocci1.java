@@ -3,7 +3,7 @@ package ds.dynamicprogramming.memoization;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Fibnocci {
+public class Fibnocci1 {
 
     /*
      * COMPLEXITY ANALYSIS EXPLAINED IN DETAIL
