@@ -28,6 +28,8 @@ public class MaxSubArraySumSizeProblem {
 
     public static void main(String[] args) {
         System.out.println(maxSubArraySum(new int[] {4,2,1,-9,8,4,3}, 3)); // Test with sample array
+        System.out.println(maxSubArraySum(new int[] {-9,1,8,2,3,7}, 3)); // Test with sample array
+
     }
 
     // Time Complexity: O(n) - Single pass through array
