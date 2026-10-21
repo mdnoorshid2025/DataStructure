@@ -45,6 +45,6 @@ public class HasSubStringAnagramProblem {
 
     }
 
-    // Time Complexity: O(n) - Single pass through string
+    // Time Complexity: O(n*k) - Single pass through string
     // Space Complexity: O(k) - Space for character sets (k = anagram length)
 }
