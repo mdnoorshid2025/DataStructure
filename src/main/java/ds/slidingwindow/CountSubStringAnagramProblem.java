@@ -3,6 +3,33 @@ package ds.slidingwindow;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Problem: Count Substring Anagrams
+ *
+ * Given a string s and a pattern string anagram, count the number of substrings in s
+ * that are anagrams of the pattern string.
+ *
+ * Description: An anagram is a rearrangement of characters. You need to find all
+ * contiguous substrings of length equal to the pattern that contain exactly the same
+ * characters with the same frequency as the pattern.
+ *
+ * Input:
+ * - s: A string to search within
+ * - anagram: The pattern string to find anagrams of
+ *
+ * Output: An integer representing the count of substrings that are anagrams of the pattern.
+ *
+ * Examples:
+ * - countSubStringAnagram("tacoctacabcatt", "cat") → 4
+ * - countSubStringAnagram("qtqt", "qt") → 3
+ * - countSubStringAnagram("gattactat", "att") → 3
+ *
+ * Approach: Sliding window with character frequency maps to efficiently compare window
+ * contents with the pattern.
+ *
+ * Time Complexity: O(n*k) - Single pass through string
+ * Space Complexity: O(k) - Space for character sets (k = anagram length)
+ */
 public class CountSubStringAnagramProblem {
 
     public static int countSubStringAnagram(String s, String anagram) {
